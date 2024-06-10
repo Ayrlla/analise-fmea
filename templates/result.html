@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Resultado do Diagnóstico</h2>
+<p><strong>Efeito de Falha Selecionado:</strong> {{ fault_effect }}</p>
+<p><strong>Média das Medições:</strong> {{ avg_measurement }}</p>
+<p><strong>Diagnóstico:</strong> {{ diagnosis }}</p>
+<h3>Ações de Mitigação:</h3>
+<ul>
+    {% for action in actions.values() %}
+        <li>{{ action }}</li>
+    {% endfor %}
+</ul>
+<a href="/" class="btn btn-primary">Voltar</a>
+{% endblock %}

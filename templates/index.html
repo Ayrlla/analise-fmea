@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="post" action="/diagnose">
+    <div class="form-group">
+        <label for="fault_effect">Selecione o Efeito de Falha:</label>
+        <select class="form-control" id="fault_effect" name="fault_effect">
+            {% for fault in faults %}
+                <option value="{{ fault }}">{{ fault }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="measurements">Insira os valores de medição do campo magnético (separados por vírgula):</label>
+        <input type="text" class="form-control" id="measurements" name="measurements" placeholder="ex: 1.2, 2.3, 3.4">
+    </div>
+    <button type="submit" class="btn btn-primary">Diagnosticar</button>
+</form>
+{% endblock %}
